@@ -7,6 +7,11 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
+
+import { DataService } from './services/dataservice/data.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,7 @@ import { WelcomepageComponent } from './components/welcomepage/welcomepage.compo
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
