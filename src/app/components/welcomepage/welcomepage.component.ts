@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/dataservice/data.service';
+import { searchDto } from '../../searchdto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcomepage',
@@ -8,17 +10,20 @@ import { DataService } from '../../services/dataservice/data.service';
 })
 export class WelcomepageComponent implements OnInit {
 
-  message:string;
+  searchDto: any={};
   poruka: string;
-  constructor(private dataService: DataService) { }
+  poruka2: string;
+  
+  constructor(private dataService: DataService,private router: Router) { }
 
-  ngOnInit() {
-    this.dataService.currentMessage.subscribe(message => this.message = message)
-  }
+  ngOnInit() {}
 
   newMessage() {
-    this.poruka = 'Nova porukau'
-    this.dataService.changeMessage(this.poruka)
+    
+    this.dataService.changeMessageDestination(this.searchDto.destination);
+    this.dataService.changeMessageCheckin(this.searchDto.checkIn);
+    this.dataService.changeMessageCheckout(this.searchDto.checkOut);
+    this.dataService.changeMessagepersonNum(this.searchDto.numPerson);
   }
 
 }

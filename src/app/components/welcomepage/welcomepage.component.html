@@ -31,23 +31,23 @@
                            <div class="flight-tab row">
                               <div class="persent-one">
                                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                 <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="Where are you going?">
+                                 <input type="text" name="dep" [(ngModel)]="searchDto.destination" class="textboxstyle"  id="dep" placeholder="Where are you going?" >
                               </div>
                             
                               <div class="persent-one less-per">
                                  <i class="fa fa-calendar" aria-hidden="true"></i>
-                                 <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Depart">
+                                 <input type="text" name="dep" [(ngModel)]="searchDto.checkIn" class="textboxstyle" id="from-date1" placeholder="Depart">
                               </div>
                               <div class="persent-one less-per">
                                  <i class="fa fa-calendar" aria-hidden="true"></i>
-                                 <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Returrn">
+                                 <input type="text" name="dep" [(ngModel)]="searchDto.checkOut" class="textboxstyle" id="to-date" placeholder="Returrn">
                               </div>
                               <div class="persent-one">
                                  <i class="fa fa-user" aria-hidden="true"></i>
-                                 <input  type="text" name="dep" class="textboxstyle" id="dep" placeholder="Passenger">
+                                 <input  type="text" name="dep" [(ngModel)]="searchDto.numPerson"   numPerson class="textboxstyle" id="dep" placeholder="Passenger">
                               </div>
                               <div class="persent-one less-btn">
-                                 <input type="Submit" name="submit" (click)="newMessage()" value="Search" class="btn btn-danger cst-btn" id="srch">
+                                 <input type="Submit" name="submit" (click)="newMessage()" [routerLink]="['mainpage']" value="Search" class="btn btn-danger cst-btn" id="srch">
                               </div>
                            </div>
                            <!-- flight tab -->
