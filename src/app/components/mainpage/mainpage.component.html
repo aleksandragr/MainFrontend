@@ -1,7 +1,3 @@
-{{destinacija}}
-{{pocetak}}
-{{kraj}}
-{{ljudi}}
 
 <div class="wrap ">
     <div class="menu">
@@ -160,20 +156,57 @@
          
          
         
-        
-         <div  class="item">
-			<h3><strong>Hotel NAME GRAND</strong></h3>
-            <img src="https://www.freeiconspng.com/uploads/hotel-png-4.png" alt="accomodation" class="img-item"/>
-                <div class="info">
-                    <h3>Nalazi se u blizini Centra</h3>
-                    <p class="descroption">Raiting:8.5</p>
-                     <h5>$900</h5>
-					 <button type="button" class="btn btn-info btn-sm btnR">
+     <ul *ngFor="let accommodation of accommodations">
+		 <li>
+			<div class="roww">
+				<h2 class="ime">{{accommodation.name}}</h2>
+				<div class="column left " >
+						<img src="https://www.freeiconspng.com/uploads/hotel-png-4.png" alt="accomodation" class="img-item"/>
+					
+			
+								
+						
+								
+				</div>
+			
+				<div class="column space">
+			
+				</div>
+					  
+				<div class="column right" >
+					<h3>Nalazi se u blizini Centra</h3>
+					<p class="descroption">Raiting:8.5</p>
+					<h5>$900</h5>
+					<button type="button" class="btn btn-info btn-sm btnR">
 						<span class="glyphicon glyphicon-tag"></span> Reservation
-					</button>
-                </div>
-        </div>
+					</button>		  
+							
+							  
+					  
+				</div>
+			
+			
+			</div>
+		
+		</li>
+	</ul>   
     
 </div>
 
+<!--  
+<div  class="item row">
+		<h3><strong>{{accommodation.name}}</strong></h3>
+			<div class="column left">
+					<img src="https://www.freeiconspng.com/uploads/hotel-png-4.png" alt="accomodation" class="img-item"/>
+			</div>
+			<div class="info column right">
+				<h3>Nalazi se u blizini Centra</h3>
+				<p class="descroption">Raiting:8.5</p>
+				 <h5>$900</h5>
+				 <button type="button" class="btn btn-info btn-sm btnR">
+					<span class="glyphicon glyphicon-tag"></span> Reservation
+				</button>
+			</div>
+	</div>
 
+-->

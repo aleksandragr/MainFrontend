@@ -13,6 +13,8 @@ import 'rxjs/add/observable/of';
 
 import { DataService } from './services/dataservice/data.service';
 import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { SearchService } from './services/search/search.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,10 @@ import { MainpageComponent } from './components/mainpage/mainpage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [DataService],
+  providers: [DataService,SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

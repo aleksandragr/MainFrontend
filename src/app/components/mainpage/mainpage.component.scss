@@ -71,7 +71,7 @@ img {
 }
  .item {
     vertical-align: top;
-    width: 190px; 
+    width: 300px; 
     height: 330px; 
     margin: 8px;
     background:#FEFEFE; 
@@ -96,10 +96,13 @@ h5 {
 .btnR {
     position: relative;
     text-align: center;
-	left: 45px;
+	left: 77px;
     
 }
 
+.ime{
+    font-family: 'Roboto', sans-serif;
+}
 
 .descroption {
     margin: 0;
@@ -215,4 +218,31 @@ h5 {
     border: 1px solid rgb(207, 207, 207);
     background: #090;
     border-image: initial;
+}
+
+.roww:after {
+    content: "";
+    display: table;
+    clear: both;
+    background:#FEFEFE;
+    margin-left: 150px;
+}
+
+.column {
+    float: left;
+    padding: 20px;
+    height: 160px; /* Should be removed. Only for demonstration */
+    background:#FEFEFE
+}
+
+.left {
+    width: 170px;
+    height: 160px;
+    background:#FEFEFE;
+}
+
+.right {
+    width: 300px;
+    height: 160px;
+    background:#FEFEFE;
 }
