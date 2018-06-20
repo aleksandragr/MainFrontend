@@ -20,6 +20,14 @@ export class MainpageComponent implements OnInit {
   accommodations: AccommodationDTO[];
   reservationB: any={};
   reser: any={};
+  accommodations2: AccommodationDTO[];
+  additionalServices: String[];
+  typeDto: any={};
+  checked: boolean;
+  selectedOptions: any;
+  stringovi: String[];
+
+
   constructor(private dataService: DataService, private searchService: SearchService) { }
 
   ngOnInit() {
@@ -43,6 +51,7 @@ export class MainpageComponent implements OnInit {
   }
 
   reservation(id,name){
+       
 
     console.log(id);
     console.log(name);
@@ -57,6 +66,33 @@ export class MainpageComponent implements OnInit {
     
     });
 
+    this.searchService.findAllService()
+    .subscribe(data => this.additionalServices = data);
+
+
   }
+
+
+
+ serviceFilter(): void{
+  
+  this.typeDto.filterServices = this.selectedOptions;
+ 
+  this.searchService.filterType(this.typeDto)
+  .subscribe(data => {this.accommodations = data;
+    
+   
+  });
+
+ }
+
+
+
+onSelectOptionChange(list: any) {
+    
+  this.selectedOptions = list.selectedOptions.selected.map(item => item.value);
+  
+}
+
 
 }

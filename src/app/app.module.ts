@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-
+import {MatListModule} from '@angular/material/list';
 import { DataService } from './services/dataservice/data.service';
 import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { SearchService } from './services/search/search.service';
@@ -27,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule
   ],
   providers: [DataService,SearchService],
   bootstrap: [AppComponent]
