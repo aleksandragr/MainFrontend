@@ -18,4 +18,17 @@ export class SearchService {
 
   }
 
+
+  filterType(search: searchDto): Observable<any>{
+
+    return this.http.post<any>('http://localhost:8085/search/filteservices', search, httpOptions);
+
+  }
+
+  findAllService(): Observable<any>{
+
+    return this.http.get<any>('http://localhost:8085/search/getservices');
+
+  }
+
 }

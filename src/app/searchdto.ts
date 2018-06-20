@@ -4,6 +4,6 @@ export class searchDto{
     checkIn : string;
     checkOut : string;
     numPerson : number;
-
+    filterServices : any;
 
 }
