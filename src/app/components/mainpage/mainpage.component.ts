@@ -3,6 +3,7 @@ import { DataService } from '../../services/dataservice/data.service';
 import { searchDto } from '../../searchdto';
 import { SearchService } from '../../services/search/search.service';
 import { AccommodationDTO } from '../../accommodation';
+import { ReservationDto } from '../../reservation';
 
 @Component({
   selector: 'app-mainpage',
@@ -17,6 +18,8 @@ export class MainpageComponent implements OnInit {
   ljudi: string;
   search: any={};
   accommodations: AccommodationDTO[];
+  reservationB: any={};
+  reser: any={};
   constructor(private dataService: DataService, private searchService: SearchService) { }
 
   ngOnInit() {
@@ -32,9 +35,26 @@ export class MainpageComponent implements OnInit {
     
     this.searchService.search(this.search)
     .subscribe(data => {this.accommodations=data;
-    console.log(this.accommodations[0]);
+    
     
 
+    });
+
+  }
+
+  reservation(id,name){
+
+    console.log(id);
+    console.log(name);
+    this.reservationB.accommodation_id=id;
+    this.reservationB.start_date=this.pocetak;
+    this.reservationB.end_date=this.kraj;
+    this.reservationB.regUser=1;
+    this.reservationB.room_type=this.ljudi;
+
+    this.searchService.reser(this.reservationB)
+    .subscribe(data => {this.reser=data;
+    
     });
 
   }
