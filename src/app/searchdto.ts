@@ -6,4 +6,5 @@ export class searchDto{
     numPerson : number;
     filterServices : any;
     listAccommodationid : any;
+    filterTypes: any;
 }
