@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="well">
+              <div class="row">
+                  <div class="col-md-4">
+                      <img width=140px hight=100px src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" alt="" class="img-rounded img-responsive" />
+                  </div>
+                  <div class="col-md-8">
+                      <h4> {{user?.name}} {{user?.surname}}</h4>
+                     <!-- <small><cite></cite></small> -->
+                      <p>
+                          {{user?.email}}
+                          <br />
+                          {{user?.address}}
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+     
+      <div class="col-md-3">
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Reservation</th> 
+                </tr>
+              </thead>
+              <tbody>
+                  <ng-container  *ngFor="let reservation of reservations">
+                <tr> <!-- *ngFor="let reservation of reservations" -->
+                  <td>{{reservation?.accommodation.name}}  <button type="button" class="btn btn-default btn-sm"> <span class="glyphicon glyphicon-remove"></span> Remove </button></td> 
+                </tr>
+                </ng-container>
+              </tbody>
+            </table>
+      </div>
+  </div>
+</div>
