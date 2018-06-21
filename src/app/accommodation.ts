@@ -22,4 +22,5 @@ export class AccommodationDTO{
 	reservedFrom: string;
 	reservedTo: string;
 	aditionalServices: any;
+	price: number;
 }
