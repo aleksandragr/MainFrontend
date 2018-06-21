@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -12,25 +12,38 @@ import 'rxjs/add/observable/of';
 
 import {MatListModule} from '@angular/material/list';
 import { DataService } from './services/dataservice/data.service';
+import { UserService } from './services/user/user.service';
 import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { SearchService } from './services/search/search.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import {enableProdMode} from '@angular/core';
 
+const appRoutes:Routes=[
+  {path:'welcomepage',component:WelcomepageComponent},
+  {path:  '', redirectTo: '/welcomepage', pathMatch: 'full'},
+  {path:'userprofile',component:UserprofileComponent},
+  
+  ];
+
+enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     WelcomepageComponent,
-    MainpageComponent
+    MainpageComponent,
+    UserprofileComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     MatListModule
   ],
-  providers: [DataService,SearchService],
+  providers: [DataService,SearchService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
