@@ -5,5 +5,5 @@ export class searchDto{
     checkOut : string;
     numPerson : number;
     filterServices : any;
-
+    listAccommodationid : any;
 }
