@@ -32,7 +32,7 @@ export class SearchService {
   }
 
   findAllService(): Observable<any>{
-
+    
     return this.http.get<any>('http://localhost:8085/search/getservices');
 
   }

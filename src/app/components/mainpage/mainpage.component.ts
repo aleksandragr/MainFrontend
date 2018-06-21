@@ -43,10 +43,11 @@ export class MainpageComponent implements OnInit {
     
     this.searchService.search(this.search)
     .subscribe(data => {this.accommodations=data;
-    
-    
-
     });
+
+
+    this.searchService.findAllService()
+    .subscribe(data => {this.additionalServices = data});
 
   }
 
@@ -66,8 +67,7 @@ export class MainpageComponent implements OnInit {
     
     });
 
-    this.searchService.findAllService()
-    .subscribe(data => this.additionalServices = data);
+    
 
 
   }
@@ -79,10 +79,7 @@ export class MainpageComponent implements OnInit {
   this.typeDto.filterServices = this.selectedOptions;
  
   this.searchService.filterType(this.typeDto)
-  .subscribe(data => {this.accommodations = data;
-    
-   
-  });
+  .subscribe(data => this.accommodations = data);
 
  }
 
