@@ -22,13 +22,18 @@ import { LoginComponent } from './components/login/login.component';
 import { ReguserService } from './services/reguser/reguser.service';
 import { RegisterComponent } from './components/register/register.component';
 import { LogService } from './services/log/log.service';
+import { ReviewComponent } from './components/review/review.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes:Routes=[
   {path:'welcomepage',component:WelcomepageComponent},
   {path:  '', redirectTo: '/welcomepage', pathMatch: 'full'},
   {path:'userprofile',component:UserprofileComponent},
+  {path:'review',component:ReviewComponent},
   
-  ];
+];
+  
+  
 
 enableProdMode();
 @NgModule({
@@ -39,7 +44,9 @@ enableProdMode();
     MainpageComponent,
     UserprofileComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReviewComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,9 @@ enableProdMode();
     FormsModule,
     HttpClientModule,
     MatListModule,
-    Ng2Webstorage
+    Ng2Webstorage,
+    ReactiveFormsModule
+
   ],
   providers: [DataService,SearchService,UserService,ReguserService,LogService],
   bootstrap: [AppComponent]

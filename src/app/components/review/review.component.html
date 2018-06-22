@@ -1,0 +1,123 @@
+
+<div class="container">
+    <h2>Rate the object</h2>      
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Iteam</th>
+          <th>Evaluate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cleanliness</td>
+          <td><select (change)="selectChangeCleanliness($event)">
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </td>
+        </tr>
+        <tr>
+          <td>Comfort</td>
+          <td>
+        <select (change)="selectChangeComfort($event)">
+                      <option value="10">10</option>
+                      <option value="9">9</option>
+                      <option value="8">8</option>
+                      <option value="7">7</option>
+                      <option value="6">6</option>
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+        </select>
+      </td>
+        </tr>
+        <tr>
+          <td>Facilities</td>
+          <td>
+      <select (change)="selectChangeFacilities($event)">
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </td>
+        </tr>
+       <tr>
+          <td>Location</td>
+          <td>
+      <select (change)="selectChangeLocation($event)">
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </td>
+        </tr>
+       <tr>
+          <td>Staff</td>
+          <td>
+      <select (change)="selectChangeStaff($event)">
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </td>
+        </tr>
+       <tr>
+          <td>Value for money</td>
+          <td>
+      <select (change)="selectChangeValueForMoney($event)">
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </td>
+        </tr>
+      </tbody>
+    </table>
+      <form [formGroup]="form" (ngSubmit)="sendReview()"> 
+       <div class="form-group">  
+        <label for="comment">Comment:</label>
+        <textarea formControlName="comment" class="form-control" rows="5" id="comment"></textarea>
+      </div>
+    <button type="submit" class="btn btn-success">Send</button>
+    </form>
+  </div>
+    
