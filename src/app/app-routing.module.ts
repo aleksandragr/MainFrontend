@@ -7,11 +7,15 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
 
 const routes: Routes = [
 
- 
-  {path: '', component: DashboardComponent, children:
-    [
+  
+
+
+  { path: '', redirectTo: '/firstpage', pathMatch: 'full'},
+  {path: 'firstpage', component: DashboardComponent,
+   children:[
       { path: '', component: WelcomepageComponent},
-      { path: 'mainpage', component: MainpageComponent}
+      { path: 'mainpage', component: MainpageComponent},
+      { path: 'profile', component: UserprofileComponent}
     ]
 
 
