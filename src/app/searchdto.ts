@@ -7,4 +7,5 @@ export class searchDto{
     filterServices : any;
     listAccommodationid : any;
     filterTypes: any;
+    filteCategorys: any;
 }

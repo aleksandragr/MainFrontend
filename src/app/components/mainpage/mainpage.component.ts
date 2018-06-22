@@ -89,6 +89,7 @@ export class MainpageComponent implements OnInit {
   
   this.typeDto.filterServices = this.selectedOptions;
   this.typeDto.filterTypes = this.selectedTypes;
+  this.typeDto.filteCategorys = this.selectedCategory;
   this.typeDto.listAccommodationid = this.accommodations2;
   this.searchService.filterType(this.typeDto)
   .subscribe(data => {this.accommodations = data;
@@ -116,7 +117,7 @@ onSelectOptionChangeType(list: any) {
 onSelectOptionChangeCategory(list: any) {
 
 this.selectedCategory = list.selectedOptions.selected.map(item => item.value);
-console.log(this.selectedCategory);
+
 }
 
 
