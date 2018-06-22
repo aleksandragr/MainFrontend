@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   user1: any={};
+  data: any={};
 
   constructor(private userService: ReguserService, private router: Router) { }
 
@@ -19,8 +20,13 @@ export class LoginComponent implements OnInit {
   login(): void{
 
     this.userService.login(this.user1)
-    .subscribe(agent => {this.user1=agent;
-      this.router.navigate(['/firstpage']);
+    .subscribe(data => {this.data=data;
+
+      if(data.message=="User is logged in"){
+        this.router.navigate(['/firstpage']);
+      }
+
+      
 
     });
 

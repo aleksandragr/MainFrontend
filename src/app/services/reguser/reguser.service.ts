@@ -19,7 +19,7 @@ export class ReguserService {
   }
 
   register (user: Reguser): Observable<any>{
-    console.log("aaaaa");
+    
     return this.http.post<any>('http://localhost:8085/reguser/registration', user, httpOptions);
 
   }

@@ -19,10 +19,13 @@ export class RegisterComponent implements OnInit {
 
 
   register(): void {
-    console.log("rrrrrr");
+    
     this.userService.register(this.user1).
     subscribe(data => { this.poruka = data;
-      this.router.navigate(['/firstpage/login']);
+
+      if(data.message=="User is registrated"){
+        this.router.navigate(['/firstpage']);
+      }
       
 
        });
