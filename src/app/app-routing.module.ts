@@ -8,11 +8,14 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
 const routes: Routes = [
 
  
-    {path:'welcomepage',component:WelcomepageComponent},
-    {path:  '', redirectTo: '/welcomepage', pathMatch: 'full'},
-    {path:'userprofile',component:UserprofileComponent},
-    
-  
+  {path: '', component: DashboardComponent, children:
+    [
+      { path: '', component: WelcomepageComponent},
+      { path: 'mainpage', component: MainpageComponent}
+    ]
+
+
+  } 
 
 ];
 

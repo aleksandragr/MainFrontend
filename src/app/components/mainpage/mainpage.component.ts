@@ -23,10 +23,12 @@ export class MainpageComponent implements OnInit {
   accommodations2: AccommodationDTO[];
   additionalServices: String[];
   types: String[];
+  categorys: String[];
   typeDto: any={};
   checked: boolean;
   selectedOptions: any;
   selectedTypes: any;
+  selectedCategory: any;
   stringovi: String[];
 
 
@@ -54,6 +56,10 @@ export class MainpageComponent implements OnInit {
 
     this.searchService.findAllTypes()
     .subscribe(data => {this.types = data });
+
+    this.searchService.findAllCategory()
+    .subscribe(data =>{this.categorys = data});
+
   }
 
   reservation(id,name){
@@ -101,11 +107,16 @@ onSelectOptionChange(list: any) {
   
 }
 
-
 onSelectOptionChangeType(list: any) {
-    console.log("aaaaaaaaaaaaa");
+    
   this.selectedTypes = list.selectedOptions.selected.map(item => item.value);
-  console.log(this.selectedTypes);
+  
+}
+
+onSelectOptionChangeCategory(list: any) {
+
+this.selectedCategory = list.selectedOptions.selected.map(item => item.value);
+console.log(this.selectedCategory);
 }
 
 
