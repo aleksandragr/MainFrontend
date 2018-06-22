@@ -37,4 +37,17 @@ export class SearchService {
 
   }
 
+  findAllTypes(): Observable<any>{
+    
+    return this.http.get<any>('http://localhost:8085/search/gettypes');
+
+  }
+
+
+  findAllCategory(): Observable<any>{
+    
+    return this.http.get<any>('http://localhost:8085/search/getcategorys');
+
+  }
+
 }

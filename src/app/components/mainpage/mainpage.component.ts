@@ -22,9 +22,13 @@ export class MainpageComponent implements OnInit {
   reser: any={};
   accommodations2: AccommodationDTO[];
   additionalServices: String[];
+  types: String[];
+  categorys: String[];
   typeDto: any={};
   checked: boolean;
   selectedOptions: any;
+  selectedTypes: any;
+  selectedCategory: any;
   stringovi: String[];
 
 
@@ -49,6 +53,12 @@ export class MainpageComponent implements OnInit {
 
     this.searchService.findAllService()
     .subscribe(data => {this.additionalServices = data});
+
+    this.searchService.findAllTypes()
+    .subscribe(data => {this.types = data });
+
+    this.searchService.findAllCategory()
+    .subscribe(data =>{this.categorys = data});
 
   }
 
@@ -78,6 +88,8 @@ export class MainpageComponent implements OnInit {
  serviceFilter(): void{
   
   this.typeDto.filterServices = this.selectedOptions;
+  this.typeDto.filterTypes = this.selectedTypes;
+  this.typeDto.filteCategorys = this.selectedCategory;
   this.typeDto.listAccommodationid = this.accommodations2;
   this.searchService.filterType(this.typeDto)
   .subscribe(data => {this.accommodations = data;
@@ -94,6 +106,18 @@ onSelectOptionChange(list: any) {
     
   this.selectedOptions = list.selectedOptions.selected.map(item => item.value);
   
+}
+
+onSelectOptionChangeType(list: any) {
+    
+  this.selectedTypes = list.selectedOptions.selected.map(item => item.value);
+  
+}
+
+onSelectOptionChangeCategory(list: any) {
+
+this.selectedCategory = list.selectedOptions.selected.map(item => item.value);
+
 }
 
 

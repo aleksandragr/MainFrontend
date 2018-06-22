@@ -18,6 +18,9 @@ import { SearchService } from './services/search/search.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import {enableProdMode} from '@angular/core';
+import { LoginComponent } from './components/login/login.component';
+import { ReguserService } from './services/reguser/reguser.service';
+import { RegisterComponent } from './components/register/register.component';
 
 const appRoutes:Routes=[
   {path:'welcomepage',component:WelcomepageComponent},
@@ -33,7 +36,9 @@ enableProdMode();
     DashboardComponent,
     WelcomepageComponent,
     MainpageComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,7 @@ enableProdMode();
     MatListModule,
     Ng2Webstorage
   ],
-  providers: [DataService,SearchService,UserService],
+  providers: [DataService,SearchService,UserService,ReguserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

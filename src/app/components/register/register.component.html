@@ -1,0 +1,24 @@
+<div>
+  <h1 class="display-3 position">Registration</h1>
+  <div class="login-page">
+      <div class="form">
+        <form class="login-form">
+          <label>Name:</label>
+          <input type="text" placeholder="name" [(ngModel)]="user1.name" name="name" #name1 required/>
+          <label>Surname:</label>
+          <input type="text" placeholder="surname" [(ngModel)]="user1.surname" name="surname" #surname1 required/>
+          <label>Email:</label>
+          <input type="text" placeholder="email" [(ngModel)]="user1.email" name="email" #email1 required/>
+          <label>Password:</label>
+          <input type="text" placeholder="newPassword" [(ngModel)]="user1.password1" name="newPassword" #newPassword1 required/>
+          <label>Confirm password:</label>
+          <input type="text" placeholder="repeatPassword" [(ngModel)]="user1.password2" name="repeatPassword" #repeatPassword1 required/>
+          <label>Address:</label>
+          <input type="text" placeholder="address" [(ngModel)]="user1.address" name="address" #address1 required/>
+          
+          <input class="submit font-weight-bold" type="submit" value="REGISTRATION" (click)="register(); ">
+          <button class="message"><a onclick="location.href='/firstpage/login'">LOGIN</a></button>
+        </form>
+      </div>
+  </div>
+</div>
