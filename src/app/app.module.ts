@@ -9,7 +9,7 @@ import { WelcomepageComponent } from './components/welcomepage/welcomepage.compo
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-
+import {Ng2Webstorage} from 'ngx-webstorage';
 import {MatListModule} from '@angular/material/list';
 import { DataService } from './services/dataservice/data.service';
 import { UserService } from './services/user/user.service';
@@ -41,7 +41,8 @@ enableProdMode();
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    Ng2Webstorage
   ],
   providers: [DataService,SearchService,UserService],
   bootstrap: [AppComponent]
