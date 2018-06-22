@@ -25,18 +25,25 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.user1)
     .subscribe(data => {this.data=data;
 
-      if(data.message=="User is logged in"){
+      if(data==null){
+          alert(" invalid email or password ");
+      }
         
-        this._logService.setLocalStore(this.user1.email);
+        this._logService.setLocalStore(this.data);
+        window.location.reload(true);
         this.router.navigate(['/firstpage']);
       }
 
       
 
-    });
+    );
 
 
 
+  }
+  registration(){
+    window.location.reload(true);
+    this.router.navigate(['/firstpage/registration']);
   }
 
 }

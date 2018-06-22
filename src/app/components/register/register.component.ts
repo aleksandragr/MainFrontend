@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     subscribe(data => { this.poruka = data;
 
       if(data.message=="User is registrated"){
-        this.router.navigate(['/firstpage']);
+        this.router.navigate(['firstpage/login']);
       }
       
 
