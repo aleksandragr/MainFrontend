@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import {ReguserService} from '../../services/reguser/reguser.service';
+import {LogService} from '../../services/log/log.service';
+import {Reguser} from '../../reguser';
 
 @Component({
   selector: 'app-review',
@@ -8,7 +10,7 @@ import {ReguserService} from '../../services/reguser/reguser.service';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-
+  user: Reguser;
   public form: FormGroup;
   private cleanliness:number=10;
   private comfort:number=10;
@@ -18,9 +20,11 @@ export class ReviewComponent implements OnInit {
   private valueForMoney:number=10;
   private rating:number=0;
 
-  constructor(private _userService:ReguserService) { }
+  constructor(private _userService:ReguserService,private _logService:LogService) { }
 
   ngOnInit() {
+
+    this.user= this._logService.getLocalStore();
     this.form = new FormGroup({
         comment: new FormControl('',[Validators.required]),
     })
@@ -51,7 +55,7 @@ export class ReviewComponent implements OnInit {
     console.log(reviewfield.comment);
     this.rating=(this.cleanliness*1+this.comfort*1+this.facilities*1+this.location*1+this.staff*1+this.valueForMoney*1)/6;
     console.log(this.rating);
-    this._userService.addReview(this.rating,1,reviewfield.comment,1).subscribe((data)=>{alert(data.message)});
+    this._userService.addReview(this.rating,this.user.id,reviewfield.comment,1).subscribe((data)=>{alert(data.message)});
     
   }
 }
