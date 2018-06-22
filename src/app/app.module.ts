@@ -21,6 +21,7 @@ import {enableProdMode} from '@angular/core';
 import { LoginComponent } from './components/login/login.component';
 import { ReguserService } from './services/reguser/reguser.service';
 import { RegisterComponent } from './components/register/register.component';
+import { LogService } from './services/log/log.service';
 
 const appRoutes:Routes=[
   {path:'welcomepage',component:WelcomepageComponent},
@@ -49,7 +50,7 @@ enableProdMode();
     MatListModule,
     Ng2Webstorage
   ],
-  providers: [DataService,SearchService,UserService,ReguserService],
+  providers: [DataService,SearchService,UserService,ReguserService,LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user/user.service';
+import {LogService} from '../../services/log/log.service';
+import {Reguser} from '../../reguser';
 
 @Component({
   selector: 'app-userprofile',
@@ -8,19 +10,21 @@ import {UserService} from '../../services/user/user.service';
 })
 export class UserprofileComponent implements OnInit {
 
-  private user:any;
+  
   private reservations = [];
+  user: Reguser;
 
-  constructor(private _userService:UserService) { }
+  constructor(private _userService:UserService,private _logService:LogService) { }
 
   ngOnInit() {
-    this.getUser(1);
+   this.user.id= this._logService.getLocalStore();
+   // this.getUser(1);
     this.getReservations(1);
   }
 
   getUser(id:any){
-    this._userService.getUser(1).subscribe((data)=>{this.user=data;});
-    console.log(this.user);
+    this._userService.getUser(this.user.id).subscribe((data)=>{this.user=data;});
+    
   }
 
   getReservations(id:any){
