@@ -6,6 +6,7 @@ import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ViewaccommodationComponent } from './components/viewaccommodation/viewaccommodation.component';
 
 const routes: Routes = [
 
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path: 'mainpage', component: MainpageComponent},
       { path: 'profile', component: UserprofileComponent},
       { path: 'login', component: LoginComponent},
-      { path: 'registration', component: RegisterComponent}
+      { path: 'registration', component: RegisterComponent},
+      {path:'viewaccommodation',component:ViewaccommodationComponent}
     ]
 
 

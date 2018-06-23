@@ -24,6 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LogService } from './services/log/log.service';
 import { ReviewComponent } from './components/review/review.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ViewaccommodationComponent } from './components/viewaccommodation/viewaccommodation.component';
 
 const appRoutes:Routes=[
   {path:'welcomepage',component:WelcomepageComponent},
@@ -46,6 +47,7 @@ enableProdMode();
     LoginComponent,
     RegisterComponent,
     ReviewComponent,
+    ViewaccommodationComponent
     
   ],
   imports: [
