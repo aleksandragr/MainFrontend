@@ -8,4 +8,6 @@ export class searchDto{
     listAccommodationid : any;
     filterTypes: any;
     filteCategorys: any;
+    sortA : String;
+    listAccommodationsDto: any;
 }

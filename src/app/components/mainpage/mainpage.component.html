@@ -9,20 +9,20 @@
             <ul class="color-row1">
                 <li>
 					<div class="radio">
-						<label><input type="radio" name="optradio">Price ascending</label>
+						<label><input type="radio" name="optradio" value="Pricea" [(ngModel)]="selectedSort">Price ascending</label>
 					</div>
 					<div class="radio">
-						<label><input type="radio" name="optradio">Price descending</label>
+						<label><input type="radio" name="optradio" value="Priced" [(ngModel)]="selectedSort">Price descending</label>
 					</div>
 					<div class="radio">
-						<label><input type="radio" name="optradio">Category</label>
+						<label><input type="radio" name="optradio" value="category" [(ngModel)]="selectedSort">Category</label>
 					</div>
 					<div class="radio">
-						<label><input type="radio" name="optradio">Rating</label>
+						<label><input type="radio" name="optradio" value="rating" [(ngModel)]="selectedSort">Rating</label>
 					</div>
 				</li>
 				<li>
-					 <button type="button" class="btn btn-default btn-sm">
+					 <button type="button" class="btn btn-default btn-sm" (click)="sortAccommodation()">
 						<span class="glyphicon glyphicon-search"></span> Sort 
 					 </button>
 				</li>

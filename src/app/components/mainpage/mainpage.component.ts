@@ -30,8 +30,9 @@ export class MainpageComponent implements OnInit {
   selectedTypes: any;
   selectedCategory: any;
   stringovi: String[];
-
-
+  selectedSort: any;
+  sortDto: any={};
+  accommodationsdto: AccommodationDTO[];
   constructor(private dataService: DataService, private searchService: SearchService) { }
 
   ngOnInit() {
@@ -48,6 +49,7 @@ export class MainpageComponent implements OnInit {
     this.searchService.search(this.search)
     .subscribe(data => {this.accommodations=data;
         this.accommodations2 = this.accommodations;
+        this.accommodationsdto = this.accommodations;
     });
 
 
@@ -91,9 +93,11 @@ export class MainpageComponent implements OnInit {
   this.typeDto.filterTypes = this.selectedTypes;
   this.typeDto.filteCategorys = this.selectedCategory;
   this.typeDto.listAccommodationid = this.accommodations2;
+  this.typeDto.checkIn = this.pocetak;
+  this.typeDto.numPerson=Number(this.ljudi);
   this.searchService.filterType(this.typeDto)
   .subscribe(data => {this.accommodations = data;
- 
+    this.accommodationsdto = this.accommodations;
     
   
   });
@@ -119,6 +123,20 @@ onSelectOptionChangeCategory(list: any) {
 this.selectedCategory = list.selectedOptions.selected.map(item => item.value);
 
 }
+
+sortAccommodation(): void{
+  console.log(this.selectedSort);
+  this.sortDto.listAccommodationid = this.accommodations;
+  this.sortDto.sortA = this.selectedSort;
+  this.sortDto.checkIn = this.pocetak;
+  this.sortDto.numPerson=Number(this.ljudi);
+  this.sortDto.listAccommodationsDto = this.accommodationsdto;
+  this.searchService.sortAccommodation(this.sortDto)
+  .subscribe(data => this.accommodations = data);
+
+}
+
+
 
 
 }

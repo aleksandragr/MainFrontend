@@ -50,4 +50,10 @@ export class SearchService {
 
   }
 
+  sortAccommodation(searchdto: searchDto): Observable<any>{
+
+    return this.http.post<any>('http://localhost:8085/search/sortcategory', searchdto, httpOptions);
+
+  }
+
 }
