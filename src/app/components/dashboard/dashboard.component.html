@@ -5,9 +5,14 @@
     </div>
    
     <ul class="nav navbar-nav navbar-right">
-      <li> <a [routerLink]="['profile']" >User profile</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a [routerLink]="['login']">Login</a></li>
+      <ng-container  *ngIf="user!==null;else elseContent">
+      <li > <a [routerLink]="['profile']" >User profile</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+      </ng-container>
+      <ng-template #elseContent >
+      <li ><a [routerLink]="['registration']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li ><a [routerLink]="['login']">Login</a></li>
+    </ng-template>
     </ul>
   </div>
 </nav>

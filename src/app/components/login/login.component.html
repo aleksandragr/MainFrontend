@@ -8,8 +8,8 @@
           <input type="text" placeholder="username" [(ngModel)]="user1.email" name="email" #email1 required/>
           <label>Password:</label>
           <input type="password" placeholder="password" [(ngModel)]="user1.password" name="password" #password1 required/>
-          <input class="submit font-weight-bold" type="submit" value="LOGIN" (click)="login(); email1.value=''; password1.value=''">
-          <button class="message">Not registered?  <a onclick="location.href='/firstpage/registration'">Create an account</a></button>
+          <input class="submit font-weight-bold" type="submit" value="LOGIN" (click)="login()" email1.value='' password1.value=''>
+          <button   (click)="registration()" class="message">Not registered?  <a >Create an account</a></button>
         </form>
       </div>
   </div>

@@ -17,7 +17,7 @@
           <input type="text" placeholder="address" [(ngModel)]="user1.address" name="address" #address1 required/>
           
           <input class="submit font-weight-bold" type="submit" value="REGISTRATION" (click)="register(); ">
-          <button class="message"><a onclick="location.href='/firstpage/login'">LOGIN</a></button>
+          <button class="message"><a [routerLink]="['/login']">LOGIN</a></button>
         </form>
       </div>
   </div>

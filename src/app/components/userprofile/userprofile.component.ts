@@ -17,7 +17,7 @@ export class UserprofileComponent implements OnInit {
   constructor(private _userService:UserService,private _logService:LogService) { }
 
   ngOnInit() {
-   this.user.id= this._logService.getLocalStore();
+   this.user= this._logService.getLocalStore();
    // this.getUser(1);
     this.getReservations(1);
   }
@@ -28,7 +28,8 @@ export class UserprofileComponent implements OnInit {
   }
 
   getReservations(id:any){
-    this._userService.getReservations(1).subscribe((data)=>{this.reservations=data;});
+
+    this._userService.getReservations(this.user.id).subscribe((data)=>{this.reservations=data;});
   }
 
 }
