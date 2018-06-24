@@ -28,10 +28,13 @@ export class LoginComponent implements OnInit {
       if(data==null){
           alert(" invalid email or password ");
       }
-        
+      else{
         this._logService.setLocalStore(this.data);
         window.location.reload(true);
         this.router.navigate(['/firstpage']);
+
+      }
+       
       }
 
       

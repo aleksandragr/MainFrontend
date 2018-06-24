@@ -87,11 +87,16 @@ export class MainpageComponent implements OnInit {
     var ua = this.loggedin.getLocalStore();
     this.u=ua;
     
+    var checki = this.loggedin.getCheckIn();
+    var checko = this.loggedin.getCheckOut();
+    var personN = this.loggedin.getperson();
+
+
     this.reservationB.accommodation_id=id;
-    this.reservationB.start_date=this.pocetak;
-    this.reservationB.end_date=this.kraj;
+    this.reservationB.start_date= this.loggedin.getCheckIn();
+    this.reservationB.end_date=this.loggedin.getCheckOut();
     
-    this.reservationB.room_type=this.ljudi;
+    this.reservationB.room_type=this.loggedin.getperson();
     
     if(this.u!=null){
       this.reservationB.regUser=this.u.id;
