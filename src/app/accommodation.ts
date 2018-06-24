@@ -23,5 +23,5 @@ export class AccommodationDTO{
 	reservedTo: string;
 	aditionalServices: any;
 	price: number;
-	picture: String;
+	picture: string;
 }
