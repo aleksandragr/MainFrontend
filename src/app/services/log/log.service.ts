@@ -24,4 +24,65 @@ export class LogService {
     this.localStorage.clear('loggedin');
   }
 
+
+  savedestination(des){
+    this.localStorage.store("destinacija",JSON.stringify(des));
+  }
+
+  getDestination(){
+    var des = JSON.parse(this.localStorage.retrieve('destinacija'));
+    return des;
+    
+  }
+
+  delDestinacija(): void{
+    this.localStorage.clear('destinacija');
+  }
+
+  savecheckIn(checkin){
+    this.localStorage.store("checkin",JSON.stringify(checkin));
+  }
+
+  getCheckIn(){
+    var checi = JSON.parse(this.localStorage.retrieve('checkin'));
+    return checi;
+    
+  }
+
+  delCheckIn(): void{
+    this.localStorage.clear('checkin');
+  }
+
+
+
+
+  savecheckOut(checkou){
+    this.localStorage.store("checkout",JSON.stringify(checkou));
+  }
+
+  getCheckOut(){
+    var checo = JSON.parse(this.localStorage.retrieve('checkout'));
+    return checo;
+    
+  }
+
+  delCheckOut(): void{
+    this.localStorage.clear('checkout');
+  }
+
+
+  saveperson(numbperson){
+    this.localStorage.store("numperson",JSON.stringify(numbperson));
+  }
+
+  getperson(){
+    var nump = JSON.parse(this.localStorage.retrieve('numperson'));
+    return nump;
+    
+  }
+
+  delNumPerson(): void{
+    this.localStorage.clear('numperson');
+  }
+
 }

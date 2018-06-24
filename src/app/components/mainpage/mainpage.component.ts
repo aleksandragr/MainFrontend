@@ -46,16 +46,28 @@ export class MainpageComponent implements OnInit {
     this.dataService.checkoutMessage.subscribe(message => this.kraj = message);
     this.dataService.personnumMessage.subscribe(message => this.ljudi = message);
 
-    this.search.destination=this.destinacija;
-    this.search.checkIn=this.pocetak;
-    this.search.checkOut=this.kraj;
-    this.search.numPerson=Number(this.ljudi);
+
+    var dest = this.loggedin.getDestination();
+    var checki = this.loggedin.getCheckIn();
+    var checko = this.loggedin.getCheckOut();
+    var personN = this.loggedin.getperson();
+
+    console.log(dest);
+    console.log(checki);
+    console.log(checko);
+    console.log(personN);
+
+    
+    this.search.destination=dest;
+    this.search.checkIn=checki;
+    this.search.checkOut=checko;
+    this.search.numPerson=personN;
     
     this.searchService.search(this.search)
     .subscribe(data => {this.accommodations=data;
         this.accommodations2 = this.accommodations;
         this.accommodationsdto = this.accommodations;
-        console.log(this.accommodations[0].picture);
+        
     });
 
 
@@ -106,8 +118,8 @@ export class MainpageComponent implements OnInit {
   this.typeDto.filterTypes = this.selectedTypes;
   this.typeDto.filteCategorys = this.selectedCategory;
   this.typeDto.listAccommodationid = this.accommodations2;
-  this.typeDto.checkIn = this.pocetak;
-  this.typeDto.numPerson=Number(this.ljudi);
+  this.typeDto.checkIn =  this.loggedin.getCheckIn();
+  this.typeDto.numPerson=Number(this.loggedin.getperson());
   this.searchService.filterType(this.typeDto)
   .subscribe(data => {this.accommodations = data;
     this.accommodationsdto = this.accommodations;
@@ -141,8 +153,8 @@ sortAccommodation(): void{
   console.log(this.selectedSort);
   this.sortDto.listAccommodationid = this.accommodations;
   this.sortDto.sortA = this.selectedSort;
-  this.sortDto.checkIn = this.pocetak;
-  this.sortDto.numPerson=Number(this.ljudi);
+  this.sortDto.checkIn = this.loggedin.getCheckIn();
+  this.sortDto.numPerson=Number(this.loggedin.getperson());
   this.sortDto.listAccommodationsDto = this.accommodationsdto;
   this.searchService.sortAccommodation(this.sortDto)
   .subscribe(data => this.accommodations = data);
