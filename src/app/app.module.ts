@@ -31,7 +31,7 @@ const appRoutes:Routes=[
   {path:'welcomepage',component:WelcomepageComponent},
   {path:  '', redirectTo: '/welcomepage', pathMatch: 'full'},
   {path:'userprofile',component:UserprofileComponent},
-  {path:'review',component:ReviewComponent},
+  {path:'review/:id',component:ReviewComponent},
   
 ];
   

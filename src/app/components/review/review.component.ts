@@ -3,6 +3,11 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 import {ReguserService} from '../../services/reguser/reguser.service';
 import {LogService} from '../../services/log/log.service';
 import {Reguser} from '../../reguser';
+import { ActivatedRoute } from '@angular/router';
+import { ParamMap } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { AccommodationDTO } from '../../accommodation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-review',
@@ -19,10 +24,17 @@ export class ReviewComponent implements OnInit {
   private staff:number=10;
   private valueForMoney:number=10;
   private rating:number=0;
+  public accommodation_id:any;
 
-  constructor(private _userService:ReguserService,private _logService:LogService) { }
+  constructor(private _userService:ReguserService,private _logService:LogService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.route.paramMap.switchMap((params: ParamMap) => {
+      let accommodation_id = params.get('id');
+     return accommodation_id;
+  })
+  .subscribe(res => this.accommodation_id = res);
 
     this.user= this._logService.getLocalStore();
     this.form = new FormGroup({
@@ -55,7 +67,7 @@ export class ReviewComponent implements OnInit {
     console.log(reviewfield.comment);
     this.rating=(this.cleanliness*1+this.comfort*1+this.facilities*1+this.location*1+this.staff*1+this.valueForMoney*1)/6;
     console.log(this.rating);
-    this._userService.addReview(this.rating,this.user.id,reviewfield.comment,1).subscribe((data)=>{alert(data.message)});
+    this._userService.addReview(this.rating,this.user.id,reviewfield.comment,this.accommodation_id).subscribe((data)=>{alert(data.message)});
     
   }
 }
