@@ -103,13 +103,8 @@
 			<div class="roww">
 				<h2 class="ime">{{accommodation.name}}</h2>
 				<div class="column left " >
-<<<<<<< HEAD
 					<a href="http://localhost:4201/firstpage/viewaccommodation/{{accommodation.id}}">	<img src={{accommodation?.picture}} alt="accomodation" class="img-item"/></a>
 						
-=======
-					<a href="http://localhost:4201/firstpage/viewaccommodation/{{accommodation.id}}">	<img src="https://www.freeiconspng.com/uploads/hotel-png-4.png" alt="accomodation" class="img-item"/></a>
-						<img src=accommodation.picture alt="accomodation" class="img-item"/>
->>>>>>> 0346b87db9fe8a0f271953bb4896b1fd045014de
 			
 				</div>
 			
@@ -118,7 +113,7 @@
 				</div>
 					  
 				<div class="column right" >
-					<h3>{{accommodation.type}}</h3>
+					<h3>Type:{{accommodation.type}}</h3>
 					<p class="descroption">Raiting:{{accommodation.rating}}</p>
 					<h5>Price:{{accommodation.price}}</h5>
 					<button type="button" class="btn btn-info btn-sm btnR" (click)="reservation(accommodation.id, accommodation.name)">
