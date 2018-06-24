@@ -23,4 +23,17 @@ const httpOptions = {
       getUser(id:any):Observable<any> {
         return this.httpClient.get('http://localhost:8085/reguser/getUser/'+id,{});
      }
+
+
+     //ACCOMMODATION
+     getAccommodation(id:any):Observable<any> {
+      return this.httpClient.get('http://localhost:8085/review/getAccommodation/'+id,{});
+     }
+     getServices(id:any):Observable<any> {
+      return this.httpClient.get('http://localhost:8085/aservices/getServices/'+id,{});
+     }
+     getAccReviews(id:any):Observable<any> {
+      return this.httpClient.get('http://localhost:8085/review/getReviews/'+id,{});
+    }
+
 }

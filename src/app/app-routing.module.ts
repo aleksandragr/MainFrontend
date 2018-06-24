@@ -7,6 +7,7 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ViewaccommodationComponent } from './components/viewaccommodation/viewaccommodation.component';
+import { MessageComponent } from './components/message/message/message.component';
 
 const routes: Routes = [
 
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'profile', component: UserprofileComponent},
       { path: 'login', component: LoginComponent},
       { path: 'registration', component: RegisterComponent},
-      {path:'viewaccommodation',component:ViewaccommodationComponent}
+      {path:'viewaccommodation/:id',component:ViewaccommodationComponent},
+      {path:'message/:id',component:MessageComponent}
     ]
 
 

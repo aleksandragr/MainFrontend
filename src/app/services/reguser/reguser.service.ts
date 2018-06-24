@@ -22,6 +22,16 @@ export class ReguserService {
     })
   }
 
+  //MESSAGE
+  sendMessage(agentid:any,userid,commentcontent:any,accommodationid:any,):Observable<any>{
+    return this.http.post('http://localhost:8085/agent/sendMessage',{
+    rating:agentid,
+    userid:userid,
+    commentcontent:commentcontent,
+    accommodationid:accommodationid
+    })
+  }
+  
 
   login(user: Reguser): Observable<any>{
 

@@ -29,7 +29,7 @@
               <tbody>
                   <ng-container  *ngFor="let reservation of reservations">
                 <tr> <!-- *ngFor="let reservation of reservations" -->
-                  <td>{{reservation?.accommodation.name}}  <button type="button" class="btn btn-default btn-sm"> <span class="glyphicon glyphicon-remove"></span> Remove </button></td> 
+                  <td>{{reservation?.accommodation.name}} , {{reservation?.startdate}} - {{reservation?.enddate}}  <button type="button" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-remove"></span> Cancel reservation </button> <button type="button" class="btn btn-info btn-sm"> <span class="glyphicon glyphicon-envelope"></span> Contact accommodation </button></td> 
                 </tr>
                 </ng-container>
               </tbody>

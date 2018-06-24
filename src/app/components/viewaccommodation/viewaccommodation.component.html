@@ -32,7 +32,7 @@
 <!-- SLIDER END -->
 
 <div class="container" align="center">
-    <h1 >Ime HOTELA </h1><p><i>rating: 8.5</i></p>
+    <h1 >{{accommodation?.name}} </h1><p><i>Rating:{{accommodation?.rating}}</i></p>
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
       <li><a data-toggle="tab" href="#menu1">Reviews</a></li>
@@ -43,9 +43,7 @@
       <div id="home" class="tab-pane fade in active">
        <div class="container">
       
-      <p>Ovde opisemo hotel....
-	  ima wifi,parking
-	  blizu centra itd</p>
+      <p>{{accommodation?.description}}</p>
      </div>
     </div>
       <div id="menu1" class="tab-pane fade">
@@ -61,24 +59,25 @@
             </div>
             <div class="panel-body">
                 <ul class="list-group">
+                  <ng-container *ngFor="let review of reviews">
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-2 col-md-1">
                                 <img src="https://www.telerik.com/images/avatarimages/bdee0df7-fb14-4dbd-b447-cf78aa0ccf93black_user_icon.png" class="img-circle img-responsive" alt="" /></div>
                             <div class="col-xs-10 col-md-11">
                                 <div>
-                                    <a >
-                                       Moja preporuka</a>
+                                    Rating:{{review?.rating}}
                                     <div class="mic-info">
-                                        By: <a>Jurke95</a> on 2 Aug 2013
+                                        By: <a> {{review?.regUser.email}}</a>
                                     </div>
                                 </div>
                                 <div class="comment-text">
-                                   Jako udobni kreveti, restoran je jako blizu.
+                                        {{review?.comment.content}}
                                 </div>
                             </div>
                         </div>
                     </li>
+                </ng-container>
                 </ul>
             </div>
         </div>
@@ -92,13 +91,13 @@
             <thead>
             </thead>
             <tbody>
-       <!-- <ng-container *ngFor="let service of sevices"> -->
+           <ng-container *ngFor="let service of services"> 
              <tr>
               <td>
-                    <h4>{{services}}</h4>
+                    <h4>{{service}}</h4>
               </td>
             </tr>
-      <!--  </ng-container> -->		
+         </ng-container>		
         </tbody>
       </table>
      </div>
