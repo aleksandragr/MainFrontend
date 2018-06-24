@@ -12,6 +12,17 @@ export class ReguserService {
 
   constructor(private http: HttpClient) { }
 
+  //Reservation by ID
+  getReservation(id:any): Observable<any>{
+    
+    return this.http.get<any>('http://localhost:8085/reservation/getReservationById/'+id,{});
+
+  }
+
+
+
+
+
   //RAITING
   addReview(rating:any,userid:any,commentcontent:any,accommodationid:any):Observable<any>{
     return this.http.post('http://localhost:8085/review/addReview',{
