@@ -20,7 +20,10 @@ export class UserprofileComponent implements OnInit {
   ngOnInit() {
    this.user= this._logService.getLocalStore();
    // this.getUser(1);
-    this.getReservations(1);
+   this.reloadReservations();
+  }
+  reloadReservations(){
+    this.getReservations(this.user.id);
   }
 
   getUser(id:any){
@@ -31,5 +34,10 @@ export class UserprofileComponent implements OnInit {
   getReservations(id:any){
 
     this._userService.getReservations(this.user.id).subscribe((data)=>{this.reservations=data;});
+  }
+
+  cancelReservation(id){
+    console.log(id);
+    this._userService.cancelReservation(id).subscribe((data)=>{alert(data.message); this.reloadReservations();});
   }
 }

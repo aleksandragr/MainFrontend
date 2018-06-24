@@ -20,6 +20,12 @@ const httpOptions = {
      getReservations(id:any):Observable<any> {
         return this.httpClient.get('http://localhost:8085/reservation/getAllReserOfRegU/'+id,{});
       }
+
+
+      cancelReservation(id:any):Observable<any> {
+        return this.httpClient.post('http://localhost:8085/reservation/deleteReservation/'+id,{});
+      }
+
       getUser(id:any):Observable<any> {
         return this.httpClient.get('http://localhost:8085/reguser/getUser/'+id,{});
      }
