@@ -1,0 +1,10 @@
+<p></p>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="sendMessage()"> 
+        <div class="form-group">  
+         <label for="comment">Message:</label>
+         <textarea formControlName="comment" class="form-control" rows="5" id="comment"></textarea>
+       </div>
+     <button type="submit" class="btn btn-success">Send</button>
+     </form>
+   </div>
