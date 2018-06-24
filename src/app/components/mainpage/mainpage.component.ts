@@ -4,6 +4,9 @@ import { searchDto } from '../../searchdto';
 import { SearchService } from '../../services/search/search.service';
 import { AccommodationDTO } from '../../accommodation';
 import { ReservationDto } from '../../reservation';
+import {LogService} from '../../services/log/log.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Reguser } from '../../reguser';
 
 @Component({
   selector: 'app-mainpage',
@@ -33,7 +36,9 @@ export class MainpageComponent implements OnInit {
   selectedSort: any;
   sortDto: any={};
   accommodationsdto: AccommodationDTO[];
-  constructor(private dataService: DataService, private searchService: SearchService) { }
+  u: Reguser;
+
+  constructor(private dataService: DataService, private searchService: SearchService,  private loggedin: LogService, private router: Router) { }
 
   ngOnInit() {
     this.dataService.destinationMessage.subscribe(message => this.destinacija = message);
@@ -66,21 +71,28 @@ export class MainpageComponent implements OnInit {
 
   reservation(id,name){
        
-
-    console.log(id);
-    console.log(name);
+    var ua = this.loggedin.getLocalStore();
+    this.u=ua;
+    
     this.reservationB.accommodation_id=id;
     this.reservationB.start_date=this.pocetak;
     this.reservationB.end_date=this.kraj;
-    this.reservationB.regUser=1;
+    
     this.reservationB.room_type=this.ljudi;
-
-    this.searchService.reser(this.reservationB)
-    .subscribe(data => {this.reser=data;
     
-    });
-
+    if(this.u!=null){
+      this.reservationB.regUser=this.u.id;
+      this.reservationB.email=this.u.email;
+      this.reservationB.name=this.u.name;
+      this.reservationB.surname=this.u.surname;
+      this.searchService.reser(this.reservationB)
+      .subscribe(data => {this.reser=data;
     
+      });
+    }
+    else{
+      this.router.navigate(['/firstpage/login']);
+    }
 
 
   }
