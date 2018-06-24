@@ -55,6 +55,7 @@ export class MainpageComponent implements OnInit {
     .subscribe(data => {this.accommodations=data;
         this.accommodations2 = this.accommodations;
         this.accommodationsdto = this.accommodations;
+        console.log(this.accommodations[0].picture);
     });
 
 
