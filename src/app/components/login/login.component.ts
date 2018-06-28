@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(this.user1)
     .subscribe(data => {this.data=data;
-
+      console.log(data);
       if(data==null){
           alert(" invalid email or password ");
       }
