@@ -1,24 +1,42 @@
 <div>
   <h1 class="display-3 position">Registration</h1>
-  <div class="login-page">
+  <div class="row">
+  <div class="col-md-2"></div>
+  <div class="login-page col-md-4">
       <div class="form">
         <form class="login-form">
           <label>Name:</label>
-          <input type="text" placeholder="name" [(ngModel)]="user1.name" name="name" #name1 required/>
+          <input name="name" required="" type="text" placeholder="name" #name1="" [(ngModel)]="user1.name">
           <label>Surname:</label>
-          <input type="text" placeholder="surname" [(ngModel)]="user1.surname" name="surname" #surname1 required/>
+          <input name="surname" required="" type="text" placeholder="surname" [(ngModel)]="user1.surname" #surname1="">
           <label>Email:</label>
-          <input type="text" placeholder="email" [(ngModel)]="user1.email" name="email" #email1 required/>
+          <input name="email" required="" type="text" placeholder="email" [(ngModel)]="user1.email" #email1="">
           <label>Password:</label>
-          <input type="text" placeholder="newPassword" [(ngModel)]="user1.password1" name="newPassword" #newPassword1 required/>
+          <!-- (focusout)="validationWindowOut()"-->
+          <input name="newPassword" id="myPassword" required="" type="password" placeholder="newPassword" [(ngModel)]="user1.password1" #newpassword1="" (focus)="validationWindow()" (change)="changePassword()">
           <label>Confirm password:</label>
-          <input type="text" placeholder="repeatPassword" [(ngModel)]="user1.password2" name="repeatPassword" #repeatPassword1 required/>
+          <input name="repeatPassword" required="" type="password" placeholder="repeatPassword" [(ngModel)]="user1.password2" #repeatpassword1="">
           <label>Address:</label>
-          <input type="text" placeholder="address" [(ngModel)]="user1.address" name="address" #address1 required/>
+          <input name="address" required="" type="text" placeholder="address" [(ngModel)]="user1.address" #address1="">
           
           <input class="submit font-weight-bold" type="submit" value="REGISTRATION" (click)="register(); ">
           <button class="message"><a [routerLink]="['/login']">LOGIN</a></button>
         </form>
       </div>
   </div>
+  <div class="col-md-4">
+    <div class="aro-pswd_info test-nije" [ngClass]="{'test' : prikazi}">
+      <div id="pswd_info">
+        <h4>Password must be requirements</h4>
+        <ul>
+          <li class="invalid" id="letter" [ngClass]="{'pswGreen' : letter}">At least <strong>one letter</strong></li>
+          <li class="invalid" id="capital" [ngClass]="{'pswGreen' : capital}">At least <strong>one capital letter</strong></li>
+          <li class="invalid" id="number" [ngClass]="{'pswGreen' : number}">At least <strong>one number</strong></li>
+          <li class="invalid" id="length" [ngClass]="{'pswGreen' : length}">Be at least <strong>8 characters</strong></li>
+          <li class="invalid" id="space" [ngClass]="{'pswGreen' : interpunction}">be<strong> use [~,!,@,#,$,%,^,&,*,-,=,.,;,']</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

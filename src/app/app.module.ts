@@ -61,6 +61,7 @@ enableProdMode();
     MatListModule,
     Ng2Webstorage,
     ReactiveFormsModule
+    
 
   ],
   providers: [DataService,SearchService,UserService,ReguserService,LogService],

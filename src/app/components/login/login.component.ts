@@ -3,6 +3,7 @@ import { ReguserService } from '../../services/reguser/reguser.service';
 import { Router } from '@angular/router';
 import {LogService} from '../../services/log/log.service';
 import {Reguser} from '../../reguser';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit {
 
   user1: any={};
   data: any={};
+  httpOptions = new HttpHeaders;
+  jwt:any;
 
   constructor(private userService: ReguserService, private router: Router,private _logService:LogService) { }
 
@@ -29,7 +32,7 @@ export class LoginComponent implements OnInit {
           alert(" invalid email or password ");
       }
       else{
-        this._logService.setLocalStore(this.data);
+        this._logService.setLocalStore(this.data.jwt);
         window.location.reload(true);
         this.router.navigate(['/firstpage']);
 
